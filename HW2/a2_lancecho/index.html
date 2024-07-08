@@ -1,0 +1,122 @@
+<!-- =========== Winter 2024 EECS 493 Assignment 2 Starter Code =========== -->
+<html>
+  <head>
+    <title>Asteroids</title>
+    <!-- JS -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/page.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <!-- HTML -->
+  <body>
+    <div class="outer-container">
+      <div class="game-window">
+        <!-- Main Menu -->
+        <div class="header">
+          <!-- Landing Page Rquired 5. -->
+          <img
+            src="src/asteroid.png"
+            alt="Asteroid Image"
+            height="100%"
+            width="auto"
+            align="left"
+          />
+          Asteroids
+          <img
+            src="src/asteroid.png"
+            alt="Asteroid Image"
+            height="100%"
+            width="auto"
+            align="right"
+          />
+        </div>
+
+        <div class="play-button">
+          <button onclick="tutorialPopup()" class="purple-button">
+            Play game!
+          </button>
+        </div>
+
+        <div class="setting-button">
+          <button onclick="togglePopup()" class="purple-button">
+            Settings
+          </button>
+        </div>
+
+        <!-- Settings -->
+        <div class="flex" id="setting-popup">
+          <div class="setting">
+            <p><b style="font-size: 50">Settings</b></p>
+
+            <div class="slidecontainer">
+              <p class="setting-text" style="font-size: 50">
+                Volume: <span id="demo"></span>
+              </p>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+
+            <p class="setting-text" style="font-size: 50"><b>Difficulty</b></p>
+            <button class="difficulty-button">Easy</button>
+            <button class="difficulty-button selected">Normal</button>
+            <button class="difficulty-button">Hard</button>
+            <p>
+              <button onclick="togglePopup()" class="close-button">
+                Close
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="tutorial-flex" id="tutorial">
+          <div class="tutorial">
+            <b style="font-size: 75px">How to play</b>
+            <div class="tutorial-text"><b>Avoid</b> <i>asteroids</i>!</div>
+            <img
+              src="src/asteroid.png"
+              alt="Asteroid Image"
+              height="auto"
+              width="100px"
+            />
+            <div class="tutorial-text">
+              <b>Collect</b> <i>shields</i>! <b>Travel</b> through
+              <i>portals</i> to the next level!
+            </div>
+            <img
+              class="tutorial-image"
+              src="src/shield.gif"
+              alt="Shield Image"
+              height="auto"
+              width="100px"
+            />
+            <img
+              src="src/port.gif"
+              alt="Port Image"
+              height="auto"
+              width="100px"
+            />
+            <div class="tutorial-text">
+              <b>Gain</b> as many <i>points</i> as possible!
+            </div>
+            <button class="start-button">Start</button>
+          </div>
+        </div>
+      </div>
+      <!-- end game-window -->
+    </div>
+    <!-- end outer-container -->
+  </body>
+</html>

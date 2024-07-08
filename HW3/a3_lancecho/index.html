@@ -1,0 +1,207 @@
+<!-- =========== Winter 2024 EECS 493 Assignment 3 Starter Code =========== -->
+<html>
+  <head>
+    <title>Asteroids</title>
+    <!-- JS -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/page.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="outer-container">
+      <div class="game-window">
+        <audio id="dieSound">
+        <source src="src/audio/die.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="collectSound">
+        <source src="src/audio/collect.mp3" type="audio/mpeg">
+        </audio>
+        <!-- ================ ASSIGNMENT 2 CODE GOES HERE ================ -->
+        <!-- Main Menu -->
+        <div class="header">
+          <!-- Landing Page Rquired 5. -->
+          <img
+            src="src/asteroid.png"
+            alt="Asteroid Image"
+            height="100%"
+            width="auto"
+            align="left"
+          />
+          Asteroids
+          <img
+            src="src/asteroid.png"
+            alt="Asteroid Image"
+            height="100%"
+            width="auto"
+            align="right"
+          />
+        </div>
+
+        <div class="play-button">
+          <button onclick="tutorialPopup()" class="purple-button">
+            Play game!
+          </button>
+        </div>
+
+        <div class="setting-button">
+          <button onclick="togglePopup()" class="purple-button">
+            Settings
+          </button>
+        </div>
+
+        <!-- Settings -->
+        <div class="flex" id="setting-popup">
+          <div class="setting">
+            <p><b style="font-size: 50">Settings</b></p>
+
+            <div class="slidecontainer">
+              <p class="setting-text" style="font-size: 50">
+                Volume: <span id="demo"></span>
+              </p>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+
+            <p class="setting-text" style="font-size: 50"><b>Difficulty</b></p>
+            <button onclick="difficulty('easy')" class="difficulty-button">
+              Easy
+            </button>
+            <button
+              onclick="difficulty('normal')"
+              class="difficulty-button selected"
+            >
+              Normal
+            </button>
+            <button onclick="difficulty('hard')" class="difficulty-button">
+              Hard
+            </button>
+            <p>
+              <button onclick="togglePopup()" class="close-button">
+                Close
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="tutorial-flex" id="tutorial">
+          <div class="tutorial">
+            <b style="font-size: 75px">How to play</b>
+            <div class="tutorial-text"><b>Avoid</b> <i>asteroids</i>!</div>
+            <img
+              src="src/asteroid.png"
+              alt="Asteroid Image"
+              height="auto"
+              width="100px"
+            />
+            <div class="tutorial-text">
+              <b>Collect</b> <i>shields</i>! <b>Travel</b> through
+              <i>portals</i> to the next level!
+            </div>
+            <img
+              class="tutorial-image"
+              src="src/shield.gif"
+              alt="Shield Image"
+              height="auto"
+              width="100px"
+            />
+            <img
+              src="src/port.gif"
+              alt="Port Image"
+              height="auto"
+              width="100px"
+            />
+            <div class="tutorial-text">
+              <b>Gain</b> as many <i>points</i> as possible!
+            </div>
+            <button onclick="gamePopup()" class="start-button">Start</button>
+          </div>
+        </div>
+
+        <!-- =================== ASSIGNMENT 2 CODE END =================== -->
+
+        <!-- Actual Game -->
+        <div id="actual-game">
+          <!-- Get Ready -->
+          <div class="game-flex" id="game">
+            <div class="game-background">
+              <div class="scoreboard">
+                <p class="tag" style="font-size: 65px">SCORE</p>
+                <p id="score" class="tag" style="font-size: 45px; color: blue">
+                  0
+                </p>
+                <p class="tag" style="font-size: 65px">DANGER</p>
+                <p id="danger" class="tag" style="font-size: 45px; color: blue">
+                  0
+                </p>
+                <p class="tag" style="font-size: 65px">LEVEL</p>
+                <p id="level" class="tag" style="font-size: 45px; color: blue">
+                  0
+                </p>
+              </div>
+              <img src="src/player/player.gif" id="player" alt="Rocket" />
+            </div>
+          </div>
+          <!-- Asteroids -->
+          <div class="ready-flex" id="flashScreen">
+          <div class="get-ready">
+                <!-- Flash screen with fade effect -->
+                <p style="font-size: 75px; font-weight: bold">Get Ready!</p>
+                <img src="src/arrowkeys.png" />
+                <p style="font-size: 50px">Use arrow keys to move.</p>
+          </div>
+          </div>
+          <!-- Score Panel -->
+        </div>
+
+        <!-- Gameover -->
+        <div class="gameover-flex" id="gameover">
+          <div class="gameover">
+            <div class="gameover-header">
+            <!-- Landing Page Rquired 5. -->
+            <img
+              src="src/asteroid.png"
+              alt="Asteroid Image"
+              height="100%"
+              width="auto"
+              align="left"
+            />
+            Asteroids
+            <img
+              src="src/asteroid.png"
+              alt="Asteroid Image"
+              height="100%"
+              width="auto"
+              align="right"
+            />
+            </div>
+          </div>
+          <div class="gameover-message">
+            <p class="gameover-text" style="font-size: 25px;">GAME OVER!</p>
+            <p style="font-size: 25px;">YOU HAVE TO FIX YOUR SPACESHIP!</p>
+            <p style="font-size: 25px;" id="finalscore">0</p>
+            <div class="setting-button">
+            <button onclick="restartGame()" class="startover-button" style="font-size: 40px; color:black">
+              Start Over
+            </button>
+          </div>
+          </div>
+        </div>
+      <!-- end game-window -->
+    </div>
+    <!-- end outer-container -->
+    
+  </body>
+</html>

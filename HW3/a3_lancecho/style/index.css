@@ -1,0 +1,323 @@
+/* ============ Winter 2024 EECS 493 Assignment 2 Starter Code ============ */
+
+/* Main Containers */
+body, button {
+  font-family: VT323;
+}
+button {
+  font-size: xx-large;
+}
+
+.outer-container {
+  height: 720px;
+  width: 1280px;
+  /* Landing Page Required 2. */
+  background-image: url('../src/frontpage_background.jpg');
+  background-size: cover;
+  border: 5px solid gainsboro;
+}
+
+.game-window {
+  height: 720px;
+  width: 1280px;
+  float: left;
+  position: relative;
+}
+
+/* Add your stylings here */
+
+/* Landing Page Required 3,4. */
+.header {
+  height: 100px;
+  width: 1280px;
+  background-color: darkslateblue;
+  border-bottom: 6px;
+  border-bottom-style: groove;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+}
+
+/* Landing Page Required 6,7,8. */
+.play-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  padding: 30px;
+}
+
+.setting-button {
+  display: flex;
+  justify-content: center;
+}
+
+.purple-button {
+  background-color: darkslateblue;
+  color:white;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+}
+
+.flex {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.setting {
+  height: 690px;
+  width: 600px;
+  background-color: darkslateblue;
+  border: 5px solid gainsboro;
+  color: white;
+  text-align: center;
+  position:absolute;
+  z-index: 9;
+  margin-top: -255px;
+  transition: all 300ms ease-in-out;
+}
+
+.setting-text {
+  line-height: 80px;
+}
+
+.difficulty-button {
+  background-color: purple;
+  color: white;
+  width: 190px;
+  height: 100px;
+  text-align: center;
+  margin-top: -100;
+}
+
+.selected{
+  background-color: purple;
+  color: white;
+  width: 190px;
+  height: 100px;
+  text-align: center;
+  margin-top: -100;
+  border: 4px solid yellow;
+}
+
+.close-button {
+  background-color: purple;
+  color: white;
+  width: 190px;
+  height: 100px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 200;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-top: -70;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.tutorial {
+  height: 720px;
+  width: 1280px;
+  float: left;
+  position: absolute;
+  background-color: gainsboro;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.tutorial-text {
+  font-size: 50px;
+  line-height: 100px;
+}
+
+.tutorial-image {
+  margin-right: 75px;
+}
+
+.start-button {
+  background-color: gainsboro;
+  width:200px;
+  height: 75px;
+}
+
+.tutorial-flex {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-flex {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-background {
+  height: 720px;
+  width: 1280px;
+  float: left;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.scoreboard {
+  position: absolute;
+  top: -40;
+  right: 100;
+  align-items: center;
+}
+
+.tag{
+  line-height: 0;
+}
+
+.numbers{
+  font-size: 40px;
+  color:blue;
+  line-height: 0px;
+  position: relative;
+}
+
+.ready-flex {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.get-ready{
+  text-align: center;
+  z-index: 9;
+  position: fixed;
+    top: 140px;
+    left: 300px;
+    width: 680px;
+    height: 500px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    /* Initially fully visible */
+    transition: opacity 1s ease-in-out;
+    /* Transition effect */
+}
+
+#player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  src: "src/player/player.gif";
+}
+
+.asteroid {
+  position: absolute;
+  src: "src/asteroid.png";
+  height: 62px; 
+  width: 62px;
+}
+
+.shield {
+  position: absolute;
+  src: "src/shield.png";
+  height: 62px;
+  width: 62px;
+}
+
+.port {
+  position: absolute;
+  src: "src/port.gif";
+  height: 62px;
+  width: 62px;
+}
+
+.gameover-flex {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameover {
+  height: 720px;
+  width: 1280px;
+  /* Landing Page Required 2. */
+  background-image: url('../src/frontpage_background.jpg');
+  background-size: cover;
+  border: 5px solid gainsboro;
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.gameover-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 1280px;
+  background-color: darkslateblue;
+  border-bottom: 6px;
+  border-bottom-style: groove;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+}
+
+.gameover-message{
+  height: 250px;
+  width: 600px;
+  background-color: darkslateblue;
+  color: white;
+    text-align: center;
+    position: absolute;
+    z-index: 9;
+    margin-top: -255px;
+}
+
+.gameover-text {
+  line-height: 30px;
+}
+
+.startover-button {
+  height: 50px;
+  width: 180px;
+  background-color: white;
+}
